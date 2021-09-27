@@ -7,6 +7,8 @@
   "action": {
     "default_popup": "file.html",
     "default_icon":{
+      "16": "/img/dr_strange.jpg",
+      "48": "/img/dr_strange.jpg",
       "128": "/img/dr_strange.jpg"
     } 
   }
