@@ -1,1 +1,14 @@
-""
+{
+  "manifest_version": 2,
+  "name": "YouHavePwnedExtension",
+  "description": "This extension is existing",
+  "version": "1.0",
+  "permissions": [
+                "http://*/*",
+            	"https://*/*"
+  ],
+  "browser_action": {
+    "default_icon": "../img/k.png",
+    "default_popup": "file.html"
+  }
+}
