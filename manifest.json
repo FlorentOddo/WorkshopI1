@@ -3,7 +3,10 @@
   "name": "YouHavePwnedExtension",
   "description": "This extension is existing",
   "version": "1.0",
-  "permissions": ["storage"],
+  "permissions": [
+    "storage", 
+    "history"
+  ],
   "action": {
     "default_popup": "file.html",
     "default_icon":{

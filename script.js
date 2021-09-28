@@ -1,2 +1,3 @@
-const e = 7;
-const f = 98;
+chrome.history.search({text:" "}, history => {
+  console.log("🚀 ~ file: script.js ~ line 2 ~ history", history);
+});
