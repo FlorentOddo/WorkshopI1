@@ -3,7 +3,12 @@
   "name": "YouHavePwnedExtension",
   "description": "This extension is existing",
   "version": "1.0",
-  "permissions": ["storage"],
+  "permissions": [
+    "storage", 
+    "history",
+    "tabs",
+    "activeTab"
+  ],
   "action": {
     "default_popup": "file.html",
     "default_icon":{
@@ -11,6 +16,9 @@
       "48": "/img/dr_strange.png",
       "128": "/img/dr_strange.png"
     }
+  },
+  "background": {
+    "service_worker": "background.js"
   }
 
 }
