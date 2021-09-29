@@ -1,5 +1,7 @@
 let userHistory;
 let pwnedSites;
+let nameSite;
+
 chrome.history.search({text: ''}, history => {
   userHistory = history;   
   // document.getElementById('analysed').innerHTML = userHistory.length; 
@@ -35,3 +37,13 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab)=> {
   
   }
 });
+
+let infoSite;
+
+// if () {
+//   infoSite = "This site is safe";
+// } else {
+//   infoSite = "WARNING : " + nameSite + " HAS BEEN BREACHED";
+// }
+infoSite = "WARNING : " + nameSite + " HAS BEEN BREACHED";
+document.getElementById('safe').innerHTML = infoSite;
