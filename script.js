@@ -18,6 +18,7 @@ if(checkHist){
     // document.getElementById('analysed').innerHTML = userHistory.length; 
   });
 }
+let nameSite;
 
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab)=> {
@@ -27,23 +28,27 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab)=> {
     domain = domain.hostname;
     let arraySite = domain.split('.');
     nameSite = arraySite[arraySite.length - 2];
-    console.log(nameSite)
     document.getElementById('pwned').innerHTML = nameSite; 
-
     let url = 'https://haveibeenpwned.com/api/v3/breach/'+nameSite;
     console.log(url);
-
+    let infoSite = "WARNING : " + nameSite + " HAS BEEN BREACHED";
+    document.getElementById('safe').innerHTML = infoSite;
     
+
     fetch(url)
     .then(response => {
       if(response.status !== 404){
-        res = response.json();
-        console.log(res);
-        console.log(JSON.stringify(res));
+        response.json()
+        .then(data => {
+          console.log(data)
+          }
+        );
+
       }else{
         console.log("pas de réponse");
       }
     })
     .catch(error => alert("Erreur : " + error));
+  
   }
 });
