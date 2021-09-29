@@ -1,9 +1,23 @@
 let userHistory;
 let pwnedSites;
-chrome.history.search({text: ''}, history => {
-  userHistory = history;   
-  // document.getElementById('analysed').innerHTML = userHistory.length; 
-});
+
+let checkHist = false;
+
+function changeCheck(){
+  if(checkHist){
+    checkHist = false;
+  }
+  else{
+    checkHist = true;
+  }
+}
+
+if(checkHist){
+  chrome.history.search({text: ''}, history => {
+    userHistory = history;   
+    // document.getElementById('analysed').innerHTML = userHistory.length; 
+  });
+}
 
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab)=> {
