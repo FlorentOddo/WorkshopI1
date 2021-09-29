@@ -1,20 +1,43 @@
-<!DOCTYPE HTML>
-<html>
+  <!DOCTYPE html>
+  <html lang="en">
   <head>
-    <title>HaveIBeenPwned</title>
-    <style>
-      body {min-width: 250px;}
-    </style>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+      <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
   </head>
-
   <body>
-    <h2>Last Site analysed</h2>
-    <div id="typedUrl_div"></div>
-    <br>
-    <h2>Recently Analysed Urls : </h2>
-    <div id="typedUrls_div"></div>
+    <div>
 
-    <script src='script.js'></script>
+    <h1>Pwned websites</h1>
+       <h2>Enable extention</h2> 
 
+        <div class="switch">
+            <input type="radio" name="switch" id="switch-off" checked>
+            <input type="radio" name="switch" id="switch-on">
+            <span class="slider"></span>
+            <span class="toggle"></span>
+         </div>
+
+         <hr>
+
+         <div class="info">
+             <span>Last analysed website :</span> <span id="analysed"></span>
+         </div>
+
+         <hr>
+
+         <div class="info">
+             <span>Total analysed websites until now :</span> <span>1000</span>
+         </div>
+
+    </div>
+
+    
   </body>
-</html>
+  </html>
