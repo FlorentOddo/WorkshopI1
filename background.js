@@ -6,9 +6,8 @@ chrome.history.search({text: ''}, history => {
 
 
 
-chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-  if(changeInfo.url){
-    console.log(changeInfo.url);
-    document.getElementById('typedUrl_div').innerHTML = changeInfo.url; 
-  }
-});
+  // chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab)=> {
+  //   if(changeInfo.url){
+  //     // document.getElementById('typedUrls_div').innerHTML = changeInfo.url; 
+  //   }
+  // });

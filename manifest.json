@@ -16,9 +16,5 @@
       "48": "/img/dr_strange.png",
       "128": "/img/dr_strange.png"
     }
-  },
-  "background": {
-    "service_worker": "background.js"
   }
-
 }
