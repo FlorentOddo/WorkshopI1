@@ -3,15 +3,13 @@
   "name": "YouHavePwnedExtension",
   "description": "This extension is existing",
   "version": "1.0",
+  "options_page": "options.html",
   "permissions": [
     "storage", 
     "history",
     "tabs",
     "activeTab"
   ],
-  "background": {
-    "service_worker": "background.js"
-  },
   "action": {
     "default_popup": "file.html",
     "default_icon":{
