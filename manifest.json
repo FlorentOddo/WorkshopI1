@@ -9,6 +9,9 @@
     "tabs",
     "activeTab"
   ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
     "default_popup": "file.html",
     "default_icon":{
