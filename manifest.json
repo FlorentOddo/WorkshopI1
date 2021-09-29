@@ -5,7 +5,9 @@
   "version": "1.0",
   "permissions": [
     "storage", 
-    "history"
+    "history",
+    "tabs",
+    "activeTab"
   ],
   "action": {
     "default_popup": "file.html",
