@@ -13,6 +13,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab)=> {
     domain = domain.hostname;
     let arraySite = domain.split('.');
     nameSite = arraySite[arraySite.length - 2];
+    console.log(nameSite)
     document.getElementById('pwned').innerHTML = nameSite; 
 
     let url = 'https://haveibeenpwned.com/api/v3/breach/'+nameSite;
@@ -20,8 +21,15 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab)=> {
 
     
     fetch(url)
-    .then(response => response.json())
-    .then(response => console.log(JSON.stringify(response)))
+    .then(response => {
+      if(response.status !== 404){
+        res = response.json();
+        console.log(res);
+        console.log(JSON.stringify(res));
+      }else{
+        console.log("pas de réponse");
+      }
+    })
     .catch(error => alert("Erreur : " + error));
   }
 });
