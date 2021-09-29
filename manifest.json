@@ -3,7 +3,6 @@
   "name": "YouHavePwnedExtension",
   "description": "This extension is existing",
   "version": "1.0",
-  "options_page": "options.html",
   "permissions": [
     "storage", 
     "history",
