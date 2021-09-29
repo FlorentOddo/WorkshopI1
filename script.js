@@ -14,10 +14,12 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab)=> {
     let domain = (new URL(changeInfo.url));
     domain = domain.hostname;
     let arraySite = domain.split('.');
-    let nameSite = arraySite[arraySite.length - 2];
+    nameSite = arraySite[arraySite.length - 2];
     document.getElementById('pwned').innerHTML = nameSite; 
     let url = 'https://haveibeenpwned.com/api/v3/breach/'+nameSite;
     console.log(url);
+    let infoSite = "WARNING : " + nameSite + " HAS BEEN BREACHED";
+    document.getElementById('safe').innerHTML = infoSite;
     
 
     fetch(url)
@@ -37,13 +39,3 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab)=> {
   
   }
 });
-
-let infoSite;
-
-// if () {
-//   infoSite = "This site is safe";
-// } else {
-//   infoSite = "WARNING : " + nameSite + " HAS BEEN BREACHED";
-// }
-infoSite = "WARNING : " + nameSite + " HAS BEEN BREACHED";
-document.getElementById('safe').innerHTML = infoSite;
