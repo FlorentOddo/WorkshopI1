@@ -3,10 +3,24 @@ let pwnedSites;
 let infoSite;
 let nameSite;
 
-chrome.history.search({text: ''}, history => {
-  userHistory = history;   
-  // document.getElementById('analysed').innerHTML = userHistory.length; 
-});
+let checkHist = false;
+
+function changeCheck(){
+  if(checkHist){
+    checkHist = false;
+  }
+  else{
+    checkHist = true;
+  }
+}
+
+if(checkHist){
+  chrome.history.search({text: ''}, history => {
+    userHistory = history;   
+    // document.getElementById('analysed').innerHTML = userHistory.length; 
+  });
+}
+let nameSite;
 
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab)=> {
