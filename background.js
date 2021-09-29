@@ -7,5 +7,8 @@ chrome.history.search({text: ''}, history => {
 
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-  console.log(changeInfo.url);
+  if(changeInfo.url){
+    console.log(changeInfo.url);
+    document.getElementById('typedUrl_div').innerHTML = changeInfo.url; 
+  }
 });
