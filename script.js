@@ -1,5 +1,6 @@
 let userHistory;
 let pwnedSites;
+let nameSite;
 
 let checkHist = false;
 
@@ -18,7 +19,6 @@ if(checkHist){
     // document.getElementById('analysed').innerHTML = userHistory.length; 
   });
 }
-let nameSite;
 
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab)=> {
