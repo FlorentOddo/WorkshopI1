@@ -2,7 +2,7 @@ let userHistory;
 let pwnedSites;
 chrome.history.search({text: ''}, history => {
   userHistory = history;   
-  document.getElementById('analysed').innerHTML = userHistory.length; 
+  // document.getElementById('analysed').innerHTML = userHistory.length; 
 });
 
 
