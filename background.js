@@ -11,42 +11,48 @@ function doThing(urlComplet){
     let arraySite = domain.split('.');
     let nameSite = arraySite[arraySite.length - 2];
     let url = 'https://haveibeenpwned.com/api/v3/breach/'+nameSite;
-    console.log(url);
-    
 
     fetch(url)
     .then(response => {
       if(response.status !== 404){
         response.json()
         .then(data => {
-          chrome.storage.sync.set({'breached': "WARNING : " + nameSite + " has been breached"});  
-          console.log("il y a une faille");
-          }
-        );
+          chrome.storage.sync.set({'breached': "WARNING : " + nameSite + " has been breached"});   
 
-      }else{
-        chrome.storage.sync.set({'breached': nameSite + " has not been breached yet"}); 
-        console.log("pas de réponse");
-      }
-    })
-    .catch(error => alert("Erreur : " + error));
+          chrome.storage.sync.get('arrayHistory', function(data) {
+
+          let arrayHistory;
+          if (typeof data.arrayHistory === 'undefined') {
+            arrayHistory = [];
+          } else {
+            arrayHistory = data.arrayHistory;
+          }
+          if(arrayHistory.indexOf(nameSite) === -1)  
+          {  
+            arrayHistory.push(nameSite);  
+          }
+          console.log(arrayHistory);
+          chrome.storage.sync.set({'arrayHistory':arrayHistory});  
+
+        });
+      });
+    }else{
+      chrome.storage.sync.set({'breached': nameSite + " has not been breached yet"}); 
+    }
+  })
+  .catch(error => alert("Erreur : " + error));
 }
 
 
 chrome.tabs.onUpdated.addListener((tabId, change, tab) => {
   if (change.url) {
-      console.log("you are here: "+change.url);  
-      chrome.storage.sync.set({'test': "test 28"});   
       doThing(change.url);       
   }
 });
 
 chrome.tabs.onActivated.addListener( function(activeInfo){
-  chrome.tabs.get(activeInfo.tabId, function(tab){
-      y = tab.url;
-      console.log("you are here: "+y);
-      chrome.storage.sync.set({'test': "test 30"});
-      doThing(y); 
+  chrome.tabs.get(activeInfo.tabId, function(tab){    
+      doThing(tab.url); 
   });
 });
 
