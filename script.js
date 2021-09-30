@@ -24,19 +24,6 @@ function checkHistory(){
   updateInfo();
 }
 
-function notification(){
-  chrome.notifications.create(
-    "notifpwned",
-    {
-        type: "basic",
-        iconUrl: "img/dr_strange.png",
-        title: "~~",
-        message: "Warning: this website has been pwned",
-    },
-    function() {}
-  )
-}
-
 document.getElementById("historyButton").addEventListener("click", checkHistory);
 
 

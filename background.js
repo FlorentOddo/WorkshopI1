@@ -3,6 +3,18 @@ chrome.history.search({text: ''}, history => {
   userHistory = history;   
 });
 
+function notification(date){
+  chrome.notifications.create(
+    "notifpwned",
+    {
+        type: "basic",
+        iconUrl: "img/dr_strange.png",
+        title: "~~",
+        message: "Warning: this website has been pwned" + date,
+    },
+    function() {}
+  )
+}
 
 
 function doThing(urlComplet){
@@ -37,6 +49,7 @@ function doThing(urlComplet){
               description: dat.Description
             }
             console.log(site);
+            notification(site.date)
             arrayHistory.push(site);  
           }
           chrome.storage.sync.set({'arrayHistory':arrayHistory});  
