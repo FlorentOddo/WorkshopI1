@@ -7,19 +7,18 @@ chrome.history.search({text: ''}, history => {
 
 function doThing(urlComplet){
   let domain = (new URL(urlComplet));
-    domain = domain.hostname;
-    let arraySite = domain.split('.');
-    let nameSite = arraySite[arraySite.length - 2];
-    let url = 'https://haveibeenpwned.com/api/v3/breach/'+nameSite;
+  domain = domain.hostname;
+  let arraySite = domain.split('.');
+  let nameSite = arraySite[arraySite.length - 2];
+  let url = 'https://haveibeenpwned.com/api/v3/breach/'+nameSite;
 
-    fetch(url)
-    .then(response => {
-      if(response.status !== 404){
-        response.json()
-        .then(data => {
-          chrome.storage.sync.set({'breached': "WARNING : " + nameSite + " has been breached"});   
+  fetch(url)
+  .then(response => {
+    if(response.status !== 404){
+      response.json().then(data => {
+        chrome.storage.sync.set({'breached': "WARNING : " + nameSite + " has been breached"});   
 
-          chrome.storage.sync.get('arrayHistory', function(data) {
+        chrome.storage.sync.get('arrayHistory', function(data) {
 
           let arrayHistory;
           if (typeof data.arrayHistory === 'undefined') {
@@ -35,7 +34,7 @@ function doThing(urlComplet){
           chrome.storage.sync.set({'arrayHistory':arrayHistory});  
 
         });
-      });
+     });
     }else{
       chrome.storage.sync.set({'breached': nameSite + " has not been breached yet"}); 
     }
