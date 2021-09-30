@@ -6,7 +6,6 @@ function updateInfo(){
   
     if(typeof result.arrayHistory !== 'undefined' && Array.isArray(result.arrayHistory)){
       numberPwned = result.arrayHistory.length;
-      console.log(result.arrayHistory);
     }
     document.getElementById('pwned').innerHTML = numberPwned;
   

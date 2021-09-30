@@ -28,7 +28,6 @@ function doThing(urlComplet){
   .then(response => {
     if(response.status !== 404){
       response.json().then(dat => {
-        console.log(dat);
         chrome.storage.sync.set({'breached': "WARNING : " + nameSite + " has been breached"});   
 
         chrome.storage.sync.get('arrayHistory', function(data) {
@@ -48,7 +47,6 @@ function doThing(urlComplet){
               nb: dat.PwnCount,
               description: dat.Description
             }
-            console.log(site);
             notification(site.date)
             arrayHistory.push(site);  
           }
