@@ -9,6 +9,8 @@ function checkHistory(){
   });
 }
 
+document.getElementById("historyButton").addEventListener("click", checkHistory);
+
 chrome.storage.sync.get(["breached","arrayHistory"], function(result){
   document.getElementById('safe').innerHTML = result.breached;
 
