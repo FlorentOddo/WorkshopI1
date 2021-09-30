@@ -8,9 +8,9 @@ chrome.history.search({text: ''}, history => {
     fetch(url)
     .then(response => {
         if (response.status !== 404) {
-            document.getElementById('listHistory').innerHTML += "<li>WebSite : " + site.url + " has been breached</li>";
+            document.getElementById('listHistory').innerHTML += "<li style=\"color:red;\">WebSite : " + nameSite + "<b> has been breached</b></li>";
         } else {
-            document.getElementById('listHistory').innerHTML += "<li>WebSite : " + site.url + " has not been breached yet</li>";
+            document.getElementById('listHistory').innerHTML += "<li style=\"color:lightGray;\">WebSite : " + nameSite + "<b> has not been breached yet</b></li>";
         }
     })
     .catch(error => alert("Erreur : " + error));
