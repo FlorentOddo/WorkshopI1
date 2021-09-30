@@ -27,7 +27,7 @@ function checkHistory() {
       fetch(url)
       .then(response => {
         if (response.status !== 404) {
-
+          
         } else {
           chrome.storage.sync.set({'breached': nameSite + " has not been breached yet"}); 
         }
@@ -40,7 +40,6 @@ function checkHistory() {
 }
 
 document.getElementById("historyButton").addEventListener("click", checkHistory);
-
 
 
 updateInfo();
