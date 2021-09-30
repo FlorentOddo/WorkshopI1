@@ -19,13 +19,13 @@ function doThing(urlComplet){
       if(response.status !== 404){
         response.json()
         .then(data => {
-          chrome.storage.sync.set({'breached': nameSite + " is breached"});  
+          chrome.storage.sync.set({'breached': "WARNING : " + nameSite + " has been breached"});  
           console.log("il y a une faille");
           }
         );
 
       }else{
-        chrome.storage.sync.set({'breached': nameSite + " is not breached"}); 
+        chrome.storage.sync.set({'breached': nameSite + " is safe"}); 
         console.log("pas de réponse");
       }
     })

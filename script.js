@@ -22,5 +22,5 @@ if(checkHist){
 }
 
 chrome.storage.sync.get(["breached"], function(result){
-  document.getElementById('pwned').innerHTML = result.breached;
+  document.getElementById('safe').innerHTML = result.breached;
 });
