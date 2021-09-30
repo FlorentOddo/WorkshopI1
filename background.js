@@ -15,7 +15,8 @@ function doThing(urlComplet){
   fetch(url)
   .then(response => {
     if(response.status !== 404){
-      response.json().then(data => {
+      response.json().then(dat => {
+        console.log(dat);
         chrome.storage.sync.set({'breached': "WARNING : " + nameSite + " has been breached"});   
 
         chrome.storage.sync.get('arrayHistory', function(data) {
@@ -26,11 +27,18 @@ function doThing(urlComplet){
           } else {
             arrayHistory = data.arrayHistory;
           }
-          if(arrayHistory.indexOf(nameSite) === -1)  
-          {  
-            arrayHistory.push(nameSite);  
+
+          if(checkIfSiteNotExist(nameSite, arrayHistory))
+          { 
+            let site = {
+              name: nameSite,
+              date: dat.BreachDate,
+              nb: dat.PwnCount,
+              description: dat.Description
+            }
+            console.log(site);
+            arrayHistory.push(site);  
           }
-          console.log(arrayHistory);
           chrome.storage.sync.set({'arrayHistory':arrayHistory});  
 
         });
@@ -42,6 +50,16 @@ function doThing(urlComplet){
   .catch(error => alert("Erreur : " + error));
 }
 
+
+function checkIfSiteNotExist(nameSite, arraySite){
+  let ret = true;
+  arraySite.forEach(element => {
+    if(typeof element.name !== 'undefined' && element.name === nameSite){
+      ret = false;
+    }
+  });
+  return ret;
+}
 
 chrome.tabs.onUpdated.addListener((tabId, change, tab) => {
   if (change.url) {
