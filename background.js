@@ -25,7 +25,7 @@ function doThing(urlComplet){
         );
 
       }else{
-        chrome.storage.sync.set({'breached': nameSite + " is safe"}); 
+        chrome.storage.sync.set({'breached': nameSite + " has not been breached yet"}); 
         console.log("pas de réponse");
       }
     })
