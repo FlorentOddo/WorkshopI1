@@ -7,7 +7,8 @@
     "storage", 
     "history",
     "tabs",
-    "activeTab"  
+    "activeTab",
+    "notifications"
   ],
   "action": {
     "default_popup": "file.html",

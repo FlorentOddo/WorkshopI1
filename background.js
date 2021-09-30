@@ -8,9 +8,9 @@ function notification(date){
     "notifpwned",
     {
         type: "basic",
-        iconUrl: "img/dr_strange.png",
-        title: "~~",
-        message: "Warning: this website has been pwned" + date,
+        iconUrl: "img/logo.png",
+        title: "notif",
+        message: "Warning: this website has been pwned at :" + date,
     },
     function() {}
   )
