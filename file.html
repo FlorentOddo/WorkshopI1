@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,8 +31,9 @@
         <a id="pwned" target="blank" href="pwned.html">1000</a>
       </div>
 
-      <h2>Enable History scan</h2>
-      <input type="checkbox" id="myCheck" onclick="myFunction()">
+      <div class="history-button">
+        <input type="button" value="History scan" onclick="checkHistory()">
+      </div>
     </div>
     <script src="script.js"></script>
   </body>

@@ -88,3 +88,8 @@ h2 , h1{
 #switch-on:checked ~ .toggle{
   background: #2ba243;
 }
+
+.history-button {	
+	display: flex;
+	justify-content: center;
+}
